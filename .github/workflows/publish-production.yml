@@ -59,7 +59,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.ACCOUNT_ID }}
-          projectName: raphael-catarino-website
+          projectName: finland-blog
           directory: build-output
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main
