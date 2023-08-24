@@ -1,0 +1,72 @@
+name: '[PROD] Build & Publish'
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: 'Build'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - name: Restore cached dependencies
+        uses: actions/cache/restore@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+      - name: Install dependencies
+        run: bun install --production
+      - name: Save dependencies cache
+        uses: actions/cache/save@v3
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+      - name: Run build command
+        run: |
+          export NODE_ENV=production
+          bun run build
+      - name: Archive dist
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output-prod
+          path: dist
+
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: 'Publish'
+    needs: build
+    outputs:
+      published_url: ${{ steps.publish.outputs.url }}
+    steps:
+      - name: Download build output
+        uses: actions/download-artifact@v3
+        with:
+          name: build-output-prod
+          path: build-output
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.ACCOUNT_ID }}
+          projectName: raphael-catarino-website
+          directory: build-output
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+        id: publish
+      - name: Outputs
+        run: |
+          echo "ID: ${{ steps.publish.outputs.id }}"
+          echo "URL: ${{ steps.publish.outputs.url }}"
+          echo "Environment: ${{ steps.publish.outputs.environment }}"
+          echo "Alias: ${{ steps.publish.outputs.alias }}"
