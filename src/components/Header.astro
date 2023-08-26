@@ -7,21 +7,6 @@ import { SITE_TITLE } from '../consts';
   <nav
     class="flex items-center md:gap-16 justify-center flex-col md:flex-row mt-4"
   >
-    <h2 class="m-0 text-lg">{SITE_TITLE}</h2>
-    <div class="text-base md:text-lg">
-      <HeaderLink href="/">Accueil</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-    </div>
+    <h2 class="m-0 text-xl font-semibold"><a href="/">{SITE_TITLE}</a></h2>
   </nav>
 </header>
-<style>
-  nav a {
-    @apply text-gray-800;
-    padding: 0.5em;
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-  }
-</style>
