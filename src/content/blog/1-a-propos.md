@@ -2,7 +2,7 @@
 title: 'A propos de mon voyage'
 description: 'Avant de découvrir le reste de mon voyage, quelques infos'
 pubDate: 'Aug 25 2023'
-heroImage: './assets/1-a-propos/hero.png'
+heroImage: '../../assets/1-a-propos/hero.png'
 ---
 
 Bonjour à tous, je m'appelle Raphaël C. et sur ce blog vous retrouverez différents posts sur mon aventure en Finlande.

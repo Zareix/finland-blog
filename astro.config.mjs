@@ -8,8 +8,4 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://finlande.raphael-catarino.fr',
   integrations: [mdx(), sitemap(), tailwind()],
-  experimental: {
-    viewTransitions: true,
-    assets: true,
-  },
 });
