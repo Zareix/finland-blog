@@ -1,14 +1,16 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from '~/components/BaseHead.astro';
+import Header from '~/components/Header.astro';
+import Footer from '~/components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '~/consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
+import FormattedDate from '~/components/FormattedDate.astro';
 import { Image } from 'astro:assets';
-import placeholder from '../assets/blog-placeholder.jpg';
+import placeholder from '~/assets/blog-placeholder.jpg';
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('blog'))
+  .filter((post) => post.data.published)
+  .sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -37,20 +39,17 @@ const posts = (await getCollection('blog')).sort(
                       height={360}
                       alt=""
                       transition:name={`hero-image-${post.slug}`}
-                      transition:animate="morph"
                     />
                   }
                   <h3
                     class="font-semibold group-hover:text-blue-800 transition-colors duration-500 text-lg"
                     transition:name={`title-${post.slug}`}
-                    transition:animate="morph"
                   >
                     {post.data.title}
                   </h3>
                   <p class="text-gray-500 text-base">
                     <span
                       transition:name={`date-${post.slug}`}
-                      transition:animate="morph"
                     >
                       <FormattedDate date={post.data.pubDate} />
                     </span>
