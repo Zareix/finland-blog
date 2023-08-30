@@ -1,7 +1,7 @@
 ---
 title: 'Découverte du campus'
 description: 'Premier cours et découverte du campus.'
-pubDate: 'Aug 31 2023'
+pubDate: 'Sep 1 2023'
 heroImage: '~/assets/4-discover-campus/1-tuni-entree.jpeg'
 published: false
 ---
