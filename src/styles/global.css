@@ -9,3 +9,37 @@ main {
   margin: auto;
   padding: 1rem;
 }
+
+/* Prose */
+.prose img:has(+ span),
+.prose img:has(+ img + span) {
+  @apply mb-2;
+}
+
+.prose p:has(img + span) {
+  @apply font-semibold text-sm text-gray-600;
+  text-align: center;
+  font-style: italic;
+}
+
+.prose p:has(img + img) {
+  @apply md:grid md:grid-cols-2 gap-4;
+}
+
+.prose img:has(+ img),
+.prose img + img {
+  @apply my-3;
+}
+
+.prose p:has(img + img) span {
+  @apply col-span-2;
+}
+
+.prose
+  :where(blockquote p:first-of-type):not(
+    :where([class~='not-prose'] *)
+  )::before,
+.prose
+  :where(blockquote p:last-of-type):not(:where([class~='not-prose'] *))::after {
+  content: none !important;
+}

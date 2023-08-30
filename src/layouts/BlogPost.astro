@@ -54,7 +54,7 @@ const { title, description, pubDate, updatedDate, heroImage, slug } =
           }
         </div>
         <div
-          class="prose prose-hr:my-8 prose-h1:mb-3 prose-h2:mb-4 prose-img:rounded-lg prose-img:shadow-lg lg:prose-xl"
+          class="prose prose-hr:my-8 prose-h1:mb-3 prose-blockquote:font-normal prose-blockquote:text-gray-500 prose-blockquote:not-italic prose-h2:mb-4 prose-img:rounded-lg md:prose-img:max-h-[500px] prose-img:object-contain prose-img:w-max prose-img:mx-auto prose-img:shadow-lg lg:prose-xl"
         >
           <div class="my-4 text-center leading-tight">
             <div class="mb-2 text-gray-500">
@@ -76,6 +76,9 @@ const { title, description, pubDate, updatedDate, heroImage, slug } =
             >
               {title}
             </h1>
+            <p>
+              {description}
+            </p>
             <hr />
           </div>
           <div transition:animate="slide">
