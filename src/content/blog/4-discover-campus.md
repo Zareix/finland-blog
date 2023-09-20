@@ -1,9 +1,9 @@
 ---
-title: 'Découverte du campus'
-description: 'Premier cours et découverte du campus.'
-pubDate: 'Sep 1 2023'
-heroImage: '~/assets/4-discover-campus/1-tuni-entree.jpeg'
-published: false
+title: Découverte du campus
+description: Premier cours et découverte du campus.
+pubDate: Sep 1 2023
+heroImage: ~/assets/4-discover-campus/1-tuni-entree.jpeg
+draft: true
 ---
 
 Il y a plusieurs campus de la Tampere University, mais le plus grand est celui de Hervanta, au Sud Est de la ville. C'est là que se situe la plupart des bâtiments pour les étudiants en ingénierie, et c'est aussi là que se situe ma résidence.

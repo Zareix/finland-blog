@@ -3,7 +3,6 @@ title: 'Welcome Week et fuksis'
 description: 'Plein de choses pendant cette Welcome Week et découverte de la vie étudiante'
 pubDate: 'Aug 26 2023'
 heroImage: '~/assets/2-welcome-week/2-dipping.jpg'
-published: true
 ---
 
 Lors de la première semaine suivant mon arrivée, j'ai participé à la Welcome Week organisée par une "association" nommée INTO. C'est une semaine d'intégration pour les étudiants en échange, avec des activités et des soirées notamment. C'est une semaine très chargée, avec des activités tous les jours, et c'est aussi l'occasion de rencontrer des gens et de se faire des amis.

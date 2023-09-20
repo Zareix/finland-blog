@@ -9,13 +9,11 @@ import { Image } from 'astro:assets';
 import placeholder from '~/assets/blog-placeholder.jpg';
 
 const posts = (await getCollection('blog'))
-  .filter((post) => post.data.published)
-  .sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -48,9 +46,7 @@ const posts = (await getCollection('blog'))
                     {post.data.title}
                   </h3>
                   <p class="text-gray-500 text-base">
-                    <span
-                      transition:name={`date-${post.slug}`}
-                    >
+                    <span transition:name={`date-${post.slug}`}>
                       <FormattedDate date={post.data.pubDate} />
                     </span>
                   </p>

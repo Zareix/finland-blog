@@ -3,7 +3,6 @@ title: 'Découverte de la ville'
 description: 'Visite des alentours et découverte de la ville'
 pubDate: 'Aug 31 2023'
 heroImage: '~/assets/3-discover-city/1-mairie.jpeg'
-published: true
 ---
 
 ## Nature omniprésente
